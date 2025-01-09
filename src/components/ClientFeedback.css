@@ -1,0 +1,239 @@
+.feedback-section {
+  padding: 6rem 0;
+  background-color: var(--background-color, #f5f5f5);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  color: var(--text-primary, #333);
+}
+
+.feedback-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  margin-top: 2rem;
+  padding: 0 1rem;
+}
+
+.feedback-card {
+  background: var(--card-background, #ffffff);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+.feedback-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+}
+
+.client-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.client-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1.5rem;
+  border: 3px solid var(--primary-color, #007bff);
+  transition: transform 0.3s ease;
+}
+
+.client-image:hover {
+  transform: scale(1.1);
+}
+
+.client-details h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--text-primary, #333);
+  font-weight: 600;
+}
+
+.client-position {
+  margin: 0.25rem 0 0;
+  font-size: 0.9rem;
+  color: var(--primary-color, #007bff);
+}
+
+.client-company {
+  margin: 0.25rem 0 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary, #666);
+}
+
+.rating {
+  margin: 1rem 0;
+  display: flex;
+  gap: 0.25rem;
+}
+
+.star {
+  color: #ddd;
+  font-size: 1.3rem;
+  transition: color 0.3s ease;
+}
+
+.star.filled {
+  color: var(--star-color, #ffd700);
+}
+
+.feedback-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-primary, #333);
+  margin: 0;
+  font-style: italic;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .feedback-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .feedback-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feedback-card {
+    animation: none;
+    opacity: 1;
+  }
+  
+  .feedback-card:hover {
+    transform: none;
+  }
+}
+
+.rating-summary {
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  padding: 2rem;
+  background: var(--card-background, #ffffff);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.rating-overview {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.average-rating {
+  text-align: center;
+  padding-right: 2rem;
+  border-right: 1px solid var(--border-color, #eee);
+}
+
+.rating-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-primary, #333);
+  line-height: 1;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.total-ratings {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary, #666);
+}
+
+.rating-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.rating-bar-item {
+  display: grid;
+  grid-template-columns: 70px 1fr 50px;
+  align-items: center;
+  gap: 1rem;
+}
+
+.rating-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary, #666);
+}
+
+.rating-bar-container {
+  height: 8px;
+  background: var(--background-light, #eee);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.rating-bar-fill {
+  height: 100%;
+  background: var(--primary-color, #007bff);
+  border-radius: 4px;
+  transition: width 1s ease-out;
+}
+
+.rating-count {
+  font-size: 0.9rem;
+  color: var(--text-secondary, #666);
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .rating-overview {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .average-rating {
+    padding-right: 0;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color, #eee);
+    padding-bottom: 2rem;
+  }
+
+  .rating-summary {
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+  }
+}
+
+.rating-bar-fill {
+  animation: growWidth 1s ease-out forwards;
+}
+
+@keyframes growWidth {
+  from {
+    width: 0;
+  }
+} 

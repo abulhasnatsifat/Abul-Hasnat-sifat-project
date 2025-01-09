@@ -1,0 +1,108 @@
+.feedback {
+  padding: var(--spacing-3xl) 0;
+  background-color: var(--background-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.feedback-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.feedback-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  margin-bottom: var(--spacing-3xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.feedback-subtitle {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  color: var(--text-color-light);
+  font-weight: var(--font-weight-medium);
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 0.6s ease-out 0.2s forwards;
+}
+
+.feedback-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+  padding: var(--spacing-xl) 0;
+}
+
+.feedback-card {
+  padding: var(--spacing-2xl);
+  background: var(--background-color-light);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.feedback-card.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.feedback-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.feedback-quote {
+  font-size: var(--font-size-lg);
+  line-height: 1.6;
+  color: var(--text-color);
+  margin-bottom: var(--spacing-xl);
+  font-style: italic;
+}
+
+.feedback-author {
+  display: block;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-color);
+  font-style: normal;
+  margin-bottom: var(--spacing-xs);
+}
+
+.feedback-company {
+  font-size: var(--font-size-base);
+  color: var(--text-color-light);
+}
+
+@media (max-width: 768px) {
+  .feedback {
+    padding: var(--spacing-2xl) var(--spacing-md);
+  }
+
+  .feedback-grid {
+    gap: var(--spacing-lg);
+  }
+
+  .feedback-card {
+    padding: var(--spacing-xl);
+  }
+
+  .feedback-quote {
+    font-size: var(--font-size-base);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 

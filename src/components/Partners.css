@@ -1,0 +1,115 @@
+.partners {
+  padding: var(--spacing-3xl) 0;
+  background-color: var(--background-color);
+  overflow: hidden; /* Prevent horizontal scroll during animations */
+}
+
+.partners-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.1;
+  margin-bottom: var(--spacing-3xl);
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.title-accent {
+  color: var(--text-color);
+  font-size: 0.6em;
+  font-weight: var(--font-weight-medium);
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--spacing-2xl);
+  align-items: center;
+  justify-items: center;
+}
+
+.partner-item {
+  width: 100%;
+  max-width: 160px;
+  aspect-ratio: 3/2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md);
+  transition: opacity var(--transition-fast);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all var(--transition-base);
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  position: relative;
+}
+
+.partner-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--border-radius-sm);
+  background: var(--primary-color);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.partner-item:hover::after {
+  opacity: 0.03;
+}
+
+.partner-item:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 4px;
+}
+
+.partner-item.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.partner-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(1) contrast(0.8);
+  opacity: 0.6;
+  transition: all var(--transition-base);
+  will-change: filter, opacity;
+}
+
+.partner-logo:hover {
+  filter: grayscale(0) contrast(1);
+  opacity: 1;
+  transform: scale(1.02);
+}
+
+.partner-item:hover {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .partners {
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .partners-title {
+    margin-bottom: var(--spacing-2xl);
+    font-size: 1.75rem;
+  }
+
+  .partners-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--spacing-xl);
+  }
+
+  .partner-item {
+    max-width: 120px;
+  }
+} 
